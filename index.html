@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="NURUL AINA FATHIHAH BINTI AHMAD FUAD (2022829896)" content="Index">
+    <title>Index</title>
+</head>
+
+<body>
+
+<h1 style="background-color:#D9EEE1; font-family:Verdana; font-size:120% ; text-align:right;">
+<img src="logo.jpg" alt="Logo" style="height:35px; width:180px; float:left; margin: 5px 20px;">
+	<a href="index.html" target="_parent">Home</a>
+	<a href="biodata.html" target="_parent">Biodata</a>
+	<a href="experience.html" target="_parent">Experience</a>
+	<a href="education.html" target="_parent">Education</a>
+	<a href="family.html" target="_parent">Family</a>
+	<a href="gallery.html" target="_parent">Gallery</a>
+</h1>
+
+<style>
+
+/* Header */
+a:link, a:visited {
+	background-color: #D9EEE1;
+	color: black;
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	display:inline-block;
+}
+
+a:hover, a:active {
+	background-color:powderblue;
+}
+
+/* Accessibility Options */
+        .accessibility-options {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .accessibility-options button {
+            background: #D9EEE1;
+            border-radius: 60px;
+            padding: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .accessibility-options button:hover {
+            color: powderblue;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: rockwell;
+            font-size: 11px;
+            color: black;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        
+        /* Full Page Layout */
+        .main-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Video Styling */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Overlay Content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+            text-align: center;
+            z-index: 1;
+            color: white;
+        }
+
+        .content h2 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .content p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .clock {
+            font-size: 40px;
+            color: #fff;
+            padding: 20px 40px;
+        }
+
+        footer {
+            text-align: center;
+            color: black;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 13px;
+            padding: 10px ;
+	
+        }
+    </style>
+    
+<script>
+        // Minimum font size
+        const MIN_FONT_SIZE = 40; // in pixels
+
+        // Function to increase text size
+        function increaseTextSize() {
+            document.querySelectorAll('body *:not(.no-resize)').forEach((element) => {
+                const currentSize = parseFloat(getComputedStyle(element).fontSize);
+                element.style.fontSize = (currentSize + 2) + "px";
+            });
+        }
+
+        // Function to decrease text size with minimum limit
+        function decreaseTextSize() {
+            document.querySelectorAll('body *:not(.no-resize)').forEach((element) => {
+                const currentSize = parseFloat(getComputedStyle(element).fontSize);
+                if (currentSize > MIN_FONT_SIZE) {
+                    element.style.fontSize = (currentSize - 2) + "px";
+                }
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+       <div class="main-container">
+        <!-- Background Video -->
+        <video autoplay loop muted>
+            <source src="background.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay Content -->
+        <div class="content">
+            <h2>HELLO AND HI GUYS!</h2>
+            <p>Lets enter into my world</p>
+        </div>
+        <div class="clock" id="digital-clock">
+            <!-- Time will be displayed here -->
+        </div>
+        <div class="accessibility-options">
+            <button onclick="increaseTextSize()" title="Increase Text Size">🔼</button>
+            <button onclick="decreaseTextSize()" title="Decrease Text Size">🔽</button>
+        </div>
+    </div>
+
+    
+    <script>
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            // Format time to 2 digits
+            hours = (hours < 10) ? '0' + hours : hours;
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+            const timeString = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('digital-clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+<footer>
+	<p>Created: <time datetime="2024-12-05">December 5, 2024</time></p>
+    <p>Last Updated: <time datetime="2024-12-05">December 5, 2024</time></p>
+    <p>Data Collected: <time datetime="2024-11-28">November 28, 2024</time></p>
+    <p><strong>&copy; 2024 Tyha Website. All Rights Reserved.</strong></p>
+</footer>
+
+</body>
+</html>
